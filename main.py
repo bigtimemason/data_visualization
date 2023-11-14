@@ -1,15 +1,32 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+import math
 
+data_frame1 = pd.read_excel('Book2.xlsx')
 
-year = [1950, 1970, 1990, 2010]
-pop = [2.519, 3.692, 5.263, 6.972]
+mass = []
+msmr = []
+lfespn = []
 
-plt.scatter(year, pop)
+for num in data_frame1['Mass (kg)']:
+    num = math.log(num)
+    mass.append(num)
+for num in data_frame1['MSMR (ml O2 g^-1 hr^-1)']:
+    msmr.append(num)
+for num in data_frame1['Approx. Lifespan (yr)']:
+    num = math.log(num)
+    lfespn.append(num)
+
+plt.scatter(mass, lfespn)
+z = np.polyfit(mass, lfespn, 1)
+p = np.poly1d(z)
+
+plt.plot(mass, p(mass), color="purple", linewidth=1, linestyle="--")
 
 # formatting the plot
-plt.title('Population (Billions) vs Year')
-plt.xlabel('Year')
-plt.ylabel('Population (Billions)')
+plt.title('Mass')
+plt.xlabel('Mass (kg)')
+plt.ylabel('Lifespan (years)')
 
 plt.show()
