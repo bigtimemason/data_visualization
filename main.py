@@ -1,3 +1,5 @@
+'''Playing around with some data techniques. This repository is not named correctly.'''
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
