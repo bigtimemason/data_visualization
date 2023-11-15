@@ -1,4 +1,4 @@
-'''Playing around with some data techniques. This repository is not named correctly.'''
+'''Playing around with some data techniques.'''
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -32,3 +32,4 @@ plt.xlabel('Mass (kg)')
 plt.ylabel('Lifespan (years)')
 
 plt.show()
+
